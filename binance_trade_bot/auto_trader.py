@@ -103,7 +103,6 @@ class AutoTrader:
         """
         raise NotImplementedError()
 
-
     def _get_ratios(self, coin: Coin, coin_price):
         """
         Given a coin, get the current price ratio for every other enabled coin
@@ -132,7 +131,6 @@ class AutoTrader:
                 coin_opt_coin_ratio - transaction_fee * self.config.SCOUT_MULTIPLIER * coin_opt_coin_ratio
             ) - pair.ratio
         return ratio_dict
-
 
     def _jump_to_best_coin(self, coin: Coin, coin_price: float):
         """
