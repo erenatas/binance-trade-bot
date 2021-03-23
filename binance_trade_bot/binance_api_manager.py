@@ -185,6 +185,8 @@ class BinanceAPIManager:
 
         self.logger.debug(f"Order filled: {order_status}")
 
+        self.logger.debug(f"Order filled: {order_status}")
+
         return order_status
 
 
