@@ -23,9 +23,6 @@ class BinanceAPIManager:
         self.db = db
         self.logger = logger
         self.config = config
-        self.cache = BinanceCache()
-        self.stream_manager = BinanceStreamManager(self.cache, self.binance_client, self.logger)
-
 
         self.cache = BinanceCache()
         self.stream_manager = BinanceStreamManager(self.cache, self.binance_client, self.logger)
@@ -185,10 +182,7 @@ class BinanceAPIManager:
 
         self.logger.debug(f"Order filled: {order_status}")
 
-        self.logger.debug(f"Order filled: {order_status}")
-
         return order_status
-
 
     def _should_cancel_order(self, order_status):
         minutes = (time.time() - order_status.time / 1000) / 60
@@ -265,7 +259,6 @@ class BinanceAPIManager:
             return None
 
         self.logger.info(f"Bought {origin_symbol}")
-
         trade_log.set_complete(order.cumulative_quote_qty)
 
         return order
